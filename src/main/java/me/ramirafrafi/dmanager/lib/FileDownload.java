@@ -184,6 +184,7 @@ public class FileDownload implements StatefulRunnable {
             Request request = this.httpClient
                     .prepareGet(this.fileUrl)
                     .setRequestTimeout(Duration.ofDays(365))
+                    .setReadTimeout(Duration.ofMinutes(2))
                     .setHeader("Range", "bytes=" + this.downloaded + "-")
                     .build();
 
